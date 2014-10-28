@@ -4,16 +4,17 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import android.widget.ArrayAdapter;
 
-
 public class MainActivity extends Activity {
-
     private HorizontalGallyView myList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         myList = (HorizontalGallyView)findViewById(R.id.my_list);
         String[] list = {"Text1","Text2","Text3","Text4","Text5","Text6","Text7","Text8","Text9","Text10","Text11","Text12"};
         myList.setAdapter(new ArrayAdapter<String>(this, R.layout.list_item,R.id.text, list));

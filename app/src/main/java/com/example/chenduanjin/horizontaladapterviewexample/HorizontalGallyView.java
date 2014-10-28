@@ -1,24 +1,17 @@
 package com.example.chenduanjin.horizontaladapterviewexample;
-import android.database.DataSetObservable;
-
 import android.database.DataSetObserver;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
+
 import android.widget.AdapterView;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.OverScroller;
-import android.widget.Scroller;
-
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import android.os.Handler;
 
@@ -26,12 +19,15 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 
+
+
 /**
  * Created by chenduanjin on 7/28/14.
  */
 public class HorizontalGallyView extends AdapterView<ListAdapter> implements GestureDetector.OnGestureListener{
 
     private  final String TAG = "HorizontalGallyView";
+
     private class HorizontalDataSetObserver extends DataSetObserver
     {
         @Override
@@ -76,15 +72,18 @@ public class HorizontalGallyView extends AdapterView<ListAdapter> implements Ges
     public HorizontalGallyView(Context context) {
         super(context);
         initViewer(context);
-    }
+        }
+
 
     public HorizontalGallyView(Context context, AttributeSet attrs) {
         super(context,attrs);
         initViewer(context);
+
     }
 
     public HorizontalGallyView(Context context, AttributeSet attrs, int defStyle) {
         super(context,attrs,defStyle);
+
         initViewer(context);
     }
 
@@ -122,6 +121,7 @@ public class HorizontalGallyView extends AdapterView<ListAdapter> implements Ges
 
     }
 
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
          mGestureDetector.onTouchEvent(event);
@@ -132,6 +132,7 @@ public class HorizontalGallyView extends AdapterView<ListAdapter> implements Ges
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
 
         int lwidthMeasureMode = MeasureSpec.getMode(widthMeasureSpec);
         int lwidth = MeasureSpec.getSize(widthMeasureSpec);
@@ -188,13 +189,13 @@ public class HorizontalGallyView extends AdapterView<ListAdapter> implements Ges
         mWidthMeasureSpec = widthMeasureSpec;
         mHeightMeasureSpec = heightMeasureSpec;
 
-
     }
 
     //TODO need to layout child here
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
+
         this.removeAllViewsInLayout();
         int itemCount = this.mAdapter == null ? 0 : this.mAdapter.getCount();
         for (int i = mFirstVisiblePostion; i < itemCount; ++i) {
@@ -449,4 +450,4 @@ public class HorizontalGallyView extends AdapterView<ListAdapter> implements Ges
         return  true;
     }
 
-}
+    }
